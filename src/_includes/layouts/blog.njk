@@ -1,0 +1,18 @@
+---
+layout: layouts/default.njk
+---
+
+<div class="content">
+{{ content | safe }}
+</div>
+
+{% if related %}
+<aside>
+  <h2>Related:</h2>
+  <ul>
+    {%- for post in collections.blog | featured(related) %}
+    <li><a href="{{ post.data.page.url }}">{{ post.data.title }}</a></li>
+    {%- endfor %}
+  </ul>
+</aside>
+{% endif %}
